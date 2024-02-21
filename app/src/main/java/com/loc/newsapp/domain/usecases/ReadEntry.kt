@@ -6,7 +6,6 @@ import kotlinx.coroutines.flow.Flow
 class ReadEntry (
     private val localUserManger: LocalUserManger
 ) {
-
      operator fun invoke(): Flow<Boolean> {
         return localUserManger.readAppEntry()
     }
