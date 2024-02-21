@@ -1,4 +1,4 @@
-package com.loc.newsapp.ui.theme.Presentation.onBoarding
+package com.loc.newsapp.Presentation.onBoarding
 
 import androidx.annotation.DrawableRes
 import com.loc.newsapp.R

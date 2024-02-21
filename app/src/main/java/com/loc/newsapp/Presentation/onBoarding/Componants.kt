@@ -1,4 +1,4 @@
-package com.loc.newsapp.ui.theme.Presentation.onBoarding
+package com.loc.newsapp.Presentation.onBoarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,8 +26,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.loc.newsapp.R
 import com.loc.newsapp.ui.theme.BlueGray
 import com.loc.newsapp.ui.theme.NewsAppTheme
-import com.loc.newsapp.ui.theme.Presentation.Dimens
-import com.loc.newsapp.ui.theme.Presentation.Dimens.IndicatorSize
+import com.loc.newsapp.Presentation.Dimens
+import com.loc.newsapp.Presentation.Dimens.IndicatorSize
 
 @Composable
 

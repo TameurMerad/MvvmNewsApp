@@ -1,4 +1,4 @@
-package com.loc.newsapp.ui.theme.Presentation.commun
+package com.loc.newsapp.Presentation.commun
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
