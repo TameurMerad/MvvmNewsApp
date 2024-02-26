@@ -13,6 +13,7 @@ class OnBoardingVM @Inject constructor(private val appEntryUseCases: AppEntryUse
 
     fun saveEntryAndNavigateToHome(){
         saveEntry()
+        //navigateToHome()
     }
 
     private fun saveEntry(){
