@@ -16,6 +16,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.lifecycleScope
 import com.loc.newsapp.ui.theme.NewsAppTheme
 import com.loc.newsapp.Presentation.onBoarding.OnBoardingScreen
+import com.loc.newsapp.Presentation.onBoarding.OnBoardingVM
 import com.loc.newsapp.domain.usecases.AppEntryUseCases
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -31,9 +32,10 @@ class MainActivity : ComponentActivity() {
     lateinit var appEntryUseCases: AppEntryUseCases
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        Log.d("zbiii", "it.toString()")
         lifecycleScope.launch {
             appEntryUseCases.readEntry().collect{
-                Log.d("testt", it.toString())
+                Log.d("test", it.toString())
             }
         }
         installSplashScreen()
@@ -43,7 +45,8 @@ class MainActivity : ComponentActivity() {
                         color = MaterialTheme.colorScheme.background,
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        OnBoardingScreen()
+                        val viewModel = OnBoardingVM(appEntryUseCases)
+                        OnBoardingScreen(viewModel= viewModel)
 
                     }
 
@@ -61,7 +64,7 @@ fun DefaultPreview() {
             color = MaterialTheme.colorScheme.background,
             modifier = Modifier.fillMaxSize()
         ) {
-            OnBoardingScreen()
+//            OnBoardingScreen()
         }
     }
 }

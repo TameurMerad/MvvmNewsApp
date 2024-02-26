@@ -4,3 +4,7 @@ data class AppEntryUseCases(
     val readEntry: ReadEntry,
     val saveEntry: SaveEntry
 )
+
+
+
+

@@ -1,5 +1,6 @@
 package com.loc.newsapp.Presentation.onBoarding
 
+import android.widget.Toast
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.loc.newsapp.Presentation.commun.NewsButton
 import com.loc.newsapp.Presentation.commun.NewsTextButton
@@ -25,8 +27,8 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen() {
-
+fun OnBoardingScreen(viewModel:OnBoardingVM) {
+    val context = LocalContext.current
     Column(Modifier.fillMaxSize()) {
         val scope = rememberCoroutineScope()
         val pagerState = rememberPagerState(initialPage = 0){
@@ -73,10 +75,12 @@ fun OnBoardingScreen() {
                 }
                 NewsButton(text = buttonState.value[1]) {
                     scope.launch {
-                        if (pagerState.currentPage != 3) {
+                        if (pagerState.currentPage != 2) {
                             pagerState.animateScrollToPage(pagerState.currentPage + 1)
                         } else {
                             // navigate to the next screen
+                            viewModel.saveEntryAndNavigateToHome()
+                            Toast.makeText(context, "Welcome to the app", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

@@ -9,5 +9,5 @@ class ReadEntry (
      operator fun invoke(): Flow<Boolean> {
         return localUserManger.readAppEntry()
     }
-
 }
+
