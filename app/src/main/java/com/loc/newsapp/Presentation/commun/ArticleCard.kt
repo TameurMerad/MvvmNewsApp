@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.home.components
+package com.loc.newsapp.presentation.commun
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.clickable
@@ -45,7 +45,9 @@ fun ArticleCard(
 
     val context = LocalContext.current
     Row(
-        modifier = modifier.clickable { onClick?.invoke() },
+        modifier = modifier.clickable {
+//            onClick?.invoke()
+                                      },
 
         ) {
         AsyncImage(

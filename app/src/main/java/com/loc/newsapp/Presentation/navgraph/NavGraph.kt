@@ -10,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import com.loc.newsapp.Presentation.home.HomeScreen
 import com.loc.newsapp.Presentation.onBoarding.OnBoardingScreen
 import com.loc.newsapp.Presentation.onBoarding.OnBoardingVM
 
@@ -37,7 +38,9 @@ fun NavGraph(
         ) {
 
             composable(Route.NewsScreen.route){
-                Text(text = "News Screen",Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Color.Red))
+//                Text(text = "News Screen",Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Color.Red))
+                HomeScreen()
+
             }
         }
 
