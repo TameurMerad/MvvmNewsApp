@@ -6,11 +6,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
@@ -21,14 +19,9 @@ import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.loc.newsapp.Presentation.navgraph.NavGraph
-import com.loc.newsapp.Presentation.navgraph.Route
 import com.loc.newsapp.ui.theme.NewsAppTheme
-import com.loc.newsapp.Presentation.onBoarding.OnBoardingScreen
-import com.loc.newsapp.Presentation.onBoarding.OnBoardingVM
-import com.loc.newsapp.domain.usecases.AppEntryUseCases
+import com.loc.newsapp.domain.usecases.app_entry.AppEntryUseCases
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

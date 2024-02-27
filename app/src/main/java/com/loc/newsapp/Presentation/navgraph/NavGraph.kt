@@ -12,8 +12,6 @@ import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import com.loc.newsapp.Presentation.onBoarding.OnBoardingScreen
 import com.loc.newsapp.Presentation.onBoarding.OnBoardingVM
-import com.loc.newsapp.domain.usecases.AppEntryUseCases
-import javax.inject.Inject
 
 @Composable
 fun NavGraph(
@@ -37,6 +35,7 @@ fun NavGraph(
             route = Route.NewsNavigation.route,
             startDestination = Route.NewsScreen.route
         ) {
+
             composable(Route.NewsScreen.route){
                 Text(text = "News Screen",Modifier.fillMaxSize().background(androidx.compose.ui.graphics.Color.Red))
             }
