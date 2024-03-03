@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.common
+package com.loc.newsapp.presentation.commun
 
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat

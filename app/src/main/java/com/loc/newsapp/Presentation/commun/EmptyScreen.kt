@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.common
+package com.loc.newsapp.presentation.commun
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.animateFloatAsState

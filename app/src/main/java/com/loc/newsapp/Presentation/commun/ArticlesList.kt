@@ -2,6 +2,9 @@ package com.loc.newsapp.Presentation.commun
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -10,17 +13,33 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.loc.newsapp.Presentation.Dimens
 import com.loc.newsapp.domain.model.Article
-import com.loc.newsapp.presentation.common.ArticleCardShimmerEffect
-import com.loc.newsapp.presentation.common.EmptyScreen
+import com.loc.newsapp.presentation.commun.ArticleCardShimmerEffect
+import com.loc.newsapp.presentation.commun.EmptyScreen
 
 
 @Composable
 fun ArticlesList(
      modifier: Modifier = Modifier,
-     Articles : LazyPagingItems<Article>,
+     articles : LazyPagingItems<Article>,
      onArticleClick: (Article) -> Unit
     ) {
-
+    val result = handlePagingResult(articles)
+    if (result){
+        LazyColumn(
+            Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(Dimens.MediumPadding1),
+            contentPadding = PaddingValues(all = Dimens.ExtraSmallPadding)
+        ){
+            items(articles.itemCount){ it ->
+                articles[it]?.let {
+                    ArticleCard(
+                        article = it,
+                        onClick = { onArticleClick(it) }
+                    )
+                }
+            }
+        }
+    }
 
 
 
