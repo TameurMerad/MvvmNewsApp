@@ -1,6 +1,7 @@
 package com.loc.newsapp
 
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -35,8 +36,10 @@ class MainActivity : ComponentActivity() {
     lateinit var appEntryUseCases: AppEntryUseCases
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val device_id = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
+
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        Log.d("testdzb", "hkak brk")
+        Log.d("testdzb", device_id)
         lifecycleScope.launch {
             appEntryUseCases.readEntry().collect {
                 Log.d("testdzb", it.toString())

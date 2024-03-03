@@ -30,7 +30,6 @@ class MainViewModel @Inject constructor(
             }
             splashCondition = false
         }
-
     }
 
 
