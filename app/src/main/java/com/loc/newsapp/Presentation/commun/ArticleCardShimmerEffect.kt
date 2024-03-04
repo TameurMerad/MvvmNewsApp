@@ -1,4 +1,4 @@
-package com.loc.newsapp.presentation.commun
+package com.loc.newsapp.Presentation.commun
 
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
@@ -41,7 +41,7 @@ import com.loc.newsapp.Presentation.Dimens.MediumPadding1
 import com.loc.newsapp.R
 import com.loc.newsapp.ui.theme.NewsAppTheme
 
-fun Modifier.shimmerEffect() = composed {
+fun Modifier.shimmerEffect()  =composed {
     val transition = rememberInfiniteTransition(label = "")
     val alpha = transition.animateFloat(
         initialValue = 0.2f, targetValue = 0.9f, animationSpec = infiniteRepeatable(

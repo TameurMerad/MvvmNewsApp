@@ -13,8 +13,7 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.loc.newsapp.Presentation.Dimens
 import com.loc.newsapp.domain.model.Article
-import com.loc.newsapp.presentation.commun.ArticleCardShimmerEffect
-import com.loc.newsapp.presentation.commun.EmptyScreen
+import com.loc.newsapp.Presentation.commun.*
 
 
 @Composable
@@ -47,6 +46,53 @@ fun ArticlesList(
 }
 
 
+
+
+
+
+
+
+
+
+@Composable
+fun ArticlesListTest(
+    modifier: Modifier = Modifier,
+    articles : List<Article>,
+    onArticleClick: (Article) -> Unit
+) {
+
+
+        LazyColumn(
+            Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(Dimens.MediumPadding1),
+            contentPadding = PaddingValues(all = Dimens.ExtraSmallPadding)
+        ){
+            items(articles.size){ it ->
+                articles[it]?.let {
+                    ArticleCard(
+                        article = it,
+                        onClick = { onArticleClick(it) }
+                    )
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @Composable
 fun handlePagingResult(articles: LazyPagingItems<Article>): Boolean {
     val loadState = articles.loadState
@@ -77,7 +123,7 @@ fun handlePagingResult(articles: LazyPagingItems<Article>): Boolean {
 
 
 @Composable
-private fun ShimmerEffect() {
+ fun ShimmerEffect() {
     Column (verticalArrangement = Arrangement.spacedBy(Dimens.MediumPadding1)){
         repeat(10){
             ArticleCardShimmerEffect()

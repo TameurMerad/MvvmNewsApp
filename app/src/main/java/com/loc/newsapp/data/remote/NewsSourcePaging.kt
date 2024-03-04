@@ -1,5 +1,6 @@
 package com.loc.newsapp.data.remote
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.loc.newsapp.data.remote.api.NewsApi
@@ -24,6 +25,7 @@ class NewsSourcePaging(
         val page = params.key ?: 1
         return try {
             val newsResponse = newsApi.getNews( page, sources)
+            Log.d("myresponsedzbtest", newsResponse.toString())
             totalNewsCount += newsResponse.articles.size
             val articles = newsResponse.articles.distinctBy { it.title }
             LoadResult.Page(
@@ -33,6 +35,8 @@ class NewsSourcePaging(
             )
 
         }catch (e:Exception){
+            Log.d("myresponsedzbtest", e.toString())
+
             e.printStackTrace()
             LoadResult.Error(e)
         }
