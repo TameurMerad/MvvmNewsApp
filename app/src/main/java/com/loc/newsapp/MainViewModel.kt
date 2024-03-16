@@ -22,6 +22,8 @@ class MainViewModel @Inject constructor(
         private set
     var startDestination by mutableStateOf(Route.AppStartNavigation.route)
         private set
+    var splashScreenInitialized by mutableStateOf(false)
+        private set
 
     init {
         viewModelScope.launch {
@@ -29,6 +31,8 @@ class MainViewModel @Inject constructor(
                 startDestination = if (it) Route.NewsNavigation.route else Route.AppStartNavigation.route
             }
             splashCondition = false
+            splashScreenInitialized = true
+
         }
     }
 

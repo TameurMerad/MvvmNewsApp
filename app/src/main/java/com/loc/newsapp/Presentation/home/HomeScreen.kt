@@ -17,8 +17,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -141,6 +143,9 @@ fun HomeScreenn(newsState : NewsUiState,navigate:(String)->Unit) {
             .padding(top = MediumPadding1)
             .statusBarsPadding()
     ) {
+        var titles by remember {
+            mutableStateOf("-------------------------------------------------------------------------------------------------------------------")
+        }
         Image(
             painter = painterResource(id = R.drawable.ic_logo),
             contentDescription = null,
@@ -167,7 +172,7 @@ fun HomeScreenn(newsState : NewsUiState,navigate:(String)->Unit) {
         Spacer(modifier = Modifier.height(MediumPadding1))
 
         Text(
-            text = "--------------------hfbvj---------------------------------------------------------------------------------------fkvjbn--------",
+            text = titles,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = MediumPadding1)
@@ -179,22 +184,19 @@ fun HomeScreenn(newsState : NewsUiState,navigate:(String)->Unit) {
 
 
         if (newsState.isLoading) {
-        // Display a loading indicator
         ShimmerEffect()
         } else if (newsState.errorMessage != null) {
-        // Display an error message
-        // You can show newsState.errorMessage to the user
+        EmptyScreen()
         } else {
-        // Display your content, for example, a list of articles
         ArticlesListTest(
             Modifier.padding(
                 horizontal = MediumPadding1
             ),
             articles = newsState.articles
         ) {
-            // Handle item click, for example, navigate to details screen
             navigate(Route.DetailsScreen.route)
         }
+            titles = newsState.articles.map { it.title }.toString()
     }
     }
 }
@@ -205,15 +207,6 @@ fun HomeScreenn(newsState : NewsUiState,navigate:(String)->Unit) {
 
 
 
-
-
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-
-    }
-}
 
 
 

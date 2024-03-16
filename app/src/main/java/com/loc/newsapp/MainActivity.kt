@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -84,8 +85,14 @@ class MainActivity : ComponentActivity() {
 //                Log.e("myresponsedzb", e.toString())
 //            }
 //
+        val splashScreenInitialized = viewModel.splashScreenInitialized
 
-        installSplashScreen()
+        if (splashScreenInitialized) {
+            installSplashScreen().setKeepOnScreenCondition {
+                viewModel.splashCondition
+            }
+        }
+
         setContent {
             NewsAppTheme {
                 val isDarkTheme = isSystemInDarkTheme()
